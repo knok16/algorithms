@@ -10,6 +10,10 @@ public class Permutations {
     private long count;
     private boolean ordered, distinct, kSet, nSet, orderedSet, distinctSet, countComputed;
 
+    public Permutations permutationsOf(final int n) {
+        return by(n).outOf(n).distinct().ordered();
+    }
+
     public Permutations by(final int k) {
         checkIsSet(kSet, "k");
         assertPositive(k, "k");
@@ -59,8 +63,6 @@ public class Permutations {
         if (countComputed) return count;
         checkIsComplete();
         if (distinct) {
-            //TODO corner cases
-            //if (n == 0) return 0;
             if (ordered) {
                 count = 1;
                 for (long i = 1, j = n; i <= k; i++, j--) {
