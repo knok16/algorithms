@@ -66,6 +66,14 @@ public class Line {
         }
     }
 
+    public Line parallelThroughPoint(final Point point) {
+        return withCoefficientThroughPoint(a, b, point);
+    }
+
+    public Line perpendicularThroughPoint(final Point point) {
+        return withCoefficientThroughPoint(b, -a, point);
+    }
+
     private static double det(final double a, final double b, final double c, final double d) {
         return a * d - b * c;
     }
